@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Social>
+
+<footer>
+    <div class="newsletter">
+        <div class="container">
+            <div class="wrapper">
+                <div class="box">
+                    <div class="content">
+                        <h3>Join OUr Newsletter</h3>
+                        <p>Get E-mail updates about our latest shop and <strong>special offers</strong></p>
+                    </div>
+
+                    <form class="search">
+                        <span class="icon-large">
+                            <i class="ri-mail-line"></i>
+                        </span>
+                        <input type="mail" placeholder="Your email address">
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="widgets">
+        <div class="container">
+            <div class="wrapper">
+                <div class="flexwrap">
+                    <div class="row">
+                        <div class="item mini-links">
+                            <h4>Help & Contact</h4>
+                            <ul class="flexcol">
+                                <li><a href="#">Your Account</a></li>
+                                <li><a href="#">Your Orders</a></li>
+                                <li><a href="#">Shipping Rates</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Assistant</a></li>
+                                <li><a href="#">Help</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item mini-links">
+                            <h4>Product Category</h4>
+                            <ul class="flexcol">
+                                <li><a href="#">Beauty</a></li>
+                                <li><a href="#">Electronic</a></li>
+                                <li><a href="#">Women's Fashion</a></li>
+                                <li><a href="#">Men's Fashion</a></li>
+                                <li><a href="#">Girl's Fashion</a></li>
+                                <li><a href="#">Boy's Fashion</a></li>
+                                <li><a href="#">Health & Household</a></li>
+                                <li><a href="#">Home & Kitchen</a></li>
+                                <li><a href="#">Pet Supplies</a></li>
+                                <li><a href="#">Sports</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item mini-links">
+                            <h4>Payment Info</h4>
+                            <ul class="flexcol">
+                                <li><a href="#">Business Card</a></li>
+                                <li><a href="#">Shop with Points</a></li>
+                                <li><a href="#">Reload Your Balance</a></li>
+                                <li><a href="#">Paypal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="item mini-links">
+                            <h4>About Us</h4>
+                            <ul class="flexcol">
+                                <li><a href="#">Company Info</a></li>
+                                <li><a href="#">News</a></li>
+                                <li><a href="#">Investors</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Policies</a></li>
+                                <li><a href="#">Customer Reviews</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="container">
+            <div class="wrapper">
+                <div class="flexcol">
+                    <div class="logo">
+                        <a href="#"><span class="circle"></span>.Store</a>
+                    </div>
+                    <div class="socials">
+                        <ul class="flexitem">
+
+                            @foreach (var item in Model)
+                            {
+                                <li><a href="@item.URL"><i class="@item.Logo"></i></a></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="mini-text">
+                    Copyright <span id="year"></span> &copy; .Store, All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

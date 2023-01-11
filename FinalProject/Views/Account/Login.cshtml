@@ -1,0 +1,49 @@
+﻿@model LoginVM
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_defaultLayout.cshtml";
+}
+
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/assets/signing/signin-image.jpg" alt="sing up image"></figure>
+                <a asp-action="Register" class="signup-image-link">Create an account</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Sign up</h2>
+                <form asp-action="Login" class="register-form" id="login-form" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="your_name"><i class="ri-account-circle-fill"></i></label>
+                        <input asp-for="UsernameOrEmail" type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                        <span class="text-danger" asp-validation-for="UsernameOrEmail"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="ri-mail-fill"></i></label>
+                        <input asp-for="Password" type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="form-group form-button">
+                        <button type="submit" class="webButton">Log in</button>
+                    </div>
+                </form>
+                <div class="social-login">
+                    <span class="social-label">Forgot your password? <a asp-controller="account" asp-action="ForgotPassword">Click here</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section css {
+    <link href="~/assets/sign-up.css" rel="stylesheet" />
+}
+
+@section valid{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-xq+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}

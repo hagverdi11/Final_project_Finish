@@ -1,0 +1,54 @@
+﻿@model Slider
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Slider detail</h2>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Header
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img style="width:100% !important; height:450px !important" src="~/assets/img/slider/@Model.Image" alt="slider" />
+                    </td>
+                    <td>
+                        <Span>@Html.Raw(Model.Title)</Span>
+                    </td>
+                    <td>
+                        <Span>@Html.Raw(Model.Header)</Span>
+                    </td>
+                    <td>
+                        <Span>@Html.Raw(Model.Description)</Span>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <a asp-controller="Slider" asp-action="Index" class="mybutton my-3">Back</a>
+</div>
+
+
+

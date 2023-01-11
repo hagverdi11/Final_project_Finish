@@ -1,0 +1,328 @@
+﻿@model ProductDetailVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_defaultLayout.cshtml";
+}
+<main>
+    <div class="single-product">
+        <div class="container">
+            <div class="wrapper">
+                <div class="breadcrumb">
+                    <ul class="flexitem">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">@ViewBag.Page</a></li>
+                        <li>Men Slip On Shoes Casual with Arch Support Insoles</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div class="products one">
+                        <div class="flexwrap">
+                            <div class="row">
+                                <div class="item is_sticky">
+                                    <div class="price">
+                                        <span class="discount">@Model.Discount% <br> OFF</span>
+                                    </div>
+                                    <div class="big-image">
+                                        <div class="big-image-wrapper swiper-wrapper">
+                                            @foreach (var item in Model.ProductImages.Where(m => !m.IsDeleted))
+                                            {
+                                                <div class="image-show swiper-slide">
+                                                    <a href="#"><img src="~/assets/products/@item.Image" alt=""></a>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                    </div>
+                                    <div thumbSlider="" class="small-image">
+                                        <ul class="small-image-wrapper flexitem swiper-wrapper">
+
+                                            @foreach (var item in Model.ProductImages.Where(m => !m.IsDeleted))
+                                            {
+                                                <li class="thumbnail-show swiper-slide">
+                                                    <img src="~/assets/products/@item.Image" alt="">
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item">
+                                    <h1>@Model.Title</h1>
+                                    <div class="content">
+                                        <div class="rating">
+                                            <div class="stars"></div>
+                                            <a href="#" class="mini-text">2,251 reviews</a>
+                                            <a href="#" class="add-review mini-text">Add Your Reviews</a>
+                                        </div>
+                                        <div class="stock-sku">
+
+                                            @if (Model.Stock > 1)
+                                            {
+                                                <span class="available">In Stock</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="available" style="color: red">Out of Stock</span>
+                                            }
+
+
+
+                                        </div>
+                                        <div class="price">
+                                            <span class="current">$@Model.DiscountPrice</span>
+                                            <span class="normal">$@Model.Price</span>
+                                        </div>
+                                        <div class="sizes">
+                                            <p>Size</p>
+                                            <div class="variant">
+                                                <form>
+                                                    @foreach (var item in Model.Sizes)
+                                                    {
+                                                        <p>
+                                                            <input type="radio" name="size" id="size-40">
+                                                            <label for="size-@item.Name" class="circle">
+                                                                <span>@item.Name</span>
+                                                            </label>
+                                                        </p>
+                                                    }
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <div class="button-cart">
+                                                <button class="primary-button">Add to cart</button>
+                                            </div>
+                                            <div class="wish-share">
+                                                <ul class="flexitem second-links">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="icon-large">
+                                                                <i class="ri-heart-line"></i>
+                                                            </span>
+                                                            <span>Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="icon-large">
+                                                                <i class="ri-share-line"></i>
+                                                            </span>
+                                                            <span>Share</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="description collapse">
+                                            <ul>
+                                                <li class="has-child">
+                                                    <a href="#0" class="icon-small">Information</a>
+                                                    <ul class="content">
+                                                        <li><span>Brands</span><span>@Model.Brand</span></li>
+                                                        <li><span>Activity</span><span>Running</span></li>
+                                                        <li><span>Material</span><span>Fleece</span></li>
+                                                        <li><span>Gender</span><span>Men</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-child">
+                                                    <a href="#0" class="icon-small">Details</a>
+                                                    <div class="content">
+                                                        <p>
+                                                            @Model.Description
+                                                        </p>
+
+                                                    </div>
+                                                </li>
+                                                <li class="has-child expand">
+                                                    <a href="#" class="icon-small">
+                                                        Reviews <span class="mini-text">2.2k</span>
+                                                    </a>
+                                                    <div class="content">
+                                                        <div class="reviews">
+                                                            <h4>Customers Reviews</h4>
+                                                            <div class="review-block">
+                                                                <div class="review-block-head">
+                                                                    <div class="flex-item">
+                                                                        <span class="rate-sum">4.9</span>
+                                                                        <span>2,251 Reviews</span>
+                                                                    </div>
+                                                                    <a href="#review-form"
+                                                                       class="secondary-button">
+                                                                        Write review
+                                                                    </a>
+                                                                </div>
+                                                                <div class="review-block-body">
+                                                                    <ul>
+                                                                        @foreach (var item in Model.dbComments)
+                                                                        {
+                                                                            <li class="item">
+                                                                                <div class="review-form">
+                                                                                    <p class="person">
+                                                                                        Review by
+                                                                                        @item.AppUser.UserName
+                                                                                    </p>
+                                                                                    <p class="mini-text">
+                                                                                        On
+                                                                                        @item.AddingTime.ToString("MM-dd-yyyy")
+                                                                                    </p>
+                                                                                </div>
+                                                                                <div class="review-rating rating">
+                                                                                    <div class="stars"></div>
+                                                                                </div>
+                                                                                <div class="review-text">
+                                                                                    <p>
+                                                                                        @item.CommentDetail
+                                                                                    </p>
+                                                                                </div>
+                                                                            </li>
+                                                                        }
+                                                                    </ul>
+
+                                                                    <div class="second-links">
+                                                                        <a href="#" class="view-all">
+                                                                            View all reviews
+                                                                            <i class="ri-arrow-right-line"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="review-form" class="review-form">
+                                                                    <h4>Write a review</h4>
+                                                                    <div class="rating">
+                                                                        <p>Are you satisfied enough?</p>
+                                                                        <div class="rate-this">
+                                                                            <input type="radio" name="rating"
+                                                                                   id="star5">
+                                                                            <label for="star5">
+                                                                                <i class="ri-star-fill"></i>
+                                                                            </label>
+
+                                                                            <input type="radio" name="rating"
+                                                                                   id="star4">
+                                                                            <label for="star4">
+                                                                                <i class="ri-star-fill"></i>
+                                                                            </label>
+
+                                                                            <input type="radio" name="rating"
+                                                                                   id="star3">
+                                                                            <label for="star3">
+                                                                                <i class="ri-star-fill"></i>
+                                                                            </label>
+
+                                                                            <input type="radio" name="rating"
+                                                                                   id="star2">
+                                                                            <label for="star2">
+                                                                                <i class="ri-star-fill"></i>
+                                                                            </label>
+
+                                                                            <input type="radio" name="rating"
+                                                                                   id="star1">
+                                                                            <label for="star1">
+                                                                                <i class="ri-star-fill"></i>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    @if (User.Identity.IsAuthenticated)
+                                                                    {
+                                                                        <form asp-action="CreateComment" method="post">
+                                                                            <p>
+                                                                                <label>Review</label>
+                                                                                <textarea asp-for="@Model.Comments.CommentDetail" cols="30" rows="10"></textarea>
+                                                                                <input type="hidden" asp-for="@Model.Comments.ProductId" value="@Model.Id" />
+                                                                            </p>
+                                                                            <p>
+                                                                                <button type="submit" class="primary-button">
+                                                                                    Submit
+                                                                                </button>
+                                                                            </p>
+                                                                        </form>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="features">
+        <div class="container">
+            <div class="wrapper">
+                <div class="column">
+                    <div class="sectop flexitem">
+                        <h2>
+                            <span class="circle"></span>
+                            <span>Related Products</span>
+                        </h2>
+                        <div class="second-links">
+                            <a href="#" class="view-all">
+                                View All
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="products main flexwrap">
+
+                        @foreach (var item in Model.FeaturedProducts)
+                        {
+                            <div class="item">
+                                <div class="media">
+                                    <div class="thumbnail object-cover">
+                                        <a href="#">
+                                            <img src="~/assets/products/@item.ProductImages.FirstOrDefault(m => m.IsMain)?.Image" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="hoverable">
+                                        <ul>
+                                            <li class="active">
+                                                <a href="#"><i class="ri-heart-line"></i></a>
+                                            </li>
+                                            <li><a href="#"><i class="ri-eye-line"></i></a></li>
+                                            <li><a href="#"><i class="ri-shuffle-line"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="discount circle flexcenter">
+                                        <span>@item.Discount%</span>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="rating">
+                                        <div class="stars"></div>
+                                        <div class="mini-text"></div>
+                                    </div>
+                                    <h3><a href="#">@item.Title</a></h3>
+                                    <div class="price">
+                                        <span class="current">$@(item.Price-(item.Price/100)*item.Discount)</span>
+                                        <span class="normal mini-text">$@item.Price</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @await Component.InvokeAsync("Banner");
+
+
+</main>

@@ -1,0 +1,70 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_defaultLayout.cshtml";
+}
+
+<main>
+
+
+    <div class="single-cart">
+        <div class="container">
+            <div class="wrapper">
+                <div class="breadcrumb">
+                    <ul class="flexitem">
+                        <li><a href="#">Home</a></li>
+                        <li>Cart</li>
+                    </ul>
+                </div>
+                <div class="page-title">
+                    <h1>Shopping Cart</h1>
+                </div>
+                <div class="products one cart">
+                    <div class="flexwrap">
+                        <form class="form-cart">
+                            <div class="item">
+                                <table class="cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Item</th>
+                                            <th>Price</th>
+                                            <th>Count</th>
+                                            <th>Subtotal</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-body basket-table">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+
+                        <div class="cart-summary styled">
+                            <div class="item">
+
+
+                                <div class="cart-total">
+                                    <table>
+                                        <tbody>
+
+                                            <tr class="grand-total">
+                                                <h3>Total Price:</h3>
+                                                <h1 class="total-price">$2500</h1>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <a href="/checkout" class="secondary-button">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section BasketScript {
+    <script src="~/cart.js"></script>
+}

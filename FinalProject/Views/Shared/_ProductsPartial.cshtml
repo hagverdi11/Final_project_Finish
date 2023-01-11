@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Product>
+
+    @foreach (var item in Model)
+    {
+        <div class="item" data-id="@item.Id ">
+            <div class="media">
+                <div class="thumbnail object-cover">
+                    <a href="#">
+                        <img src="assets/products/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                    </a>
+                </div>
+                <div class="hoverable">
+                    <ul>
+                        <li class="active">
+                            <a href="#">
+                                <i class="ri-heart-fill wishlist"></i>
+                            </a>
+                        </li>
+
+                        <li><a href="#"><i class="ri-shopping-basket-fill"></i></a></li>
+                        <li><a href="#"><i class="ri-shuffle-line"></i></a></li>
+                    </ul>
+                </div>
+                <div class="discount circle flexcenter">
+                    <span>@item.Discount%</span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="rating">
+                    <div class="stars"></div>
+                    <div class="mini-text">(2,548)</div>
+                </div>
+                <h3 class="main-links">
+                    <a href="#">
+                        <p>@item.Title</p>
+                    </a>
+                </h3>
+                <div class="price">
+                    <span class="current">$@(item.Price - (item.Price/100)*item.Discount)</span>
+                    <span class="normal mini-text">$@item.Price</span>
+                </div>
+            </div>
+        </div>
+
+    }
+

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eccomerse website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div id="page" class="site page-home">
+
+        @await Component.InvokeAsync("Header");
+
+        @RenderBody()
+        @await Component.InvokeAsync("DefFooter")
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Treading</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-shopping-cart-line"></i>
+                                    <span>Cart</span>
+                                    <div class="fly-item">
+                                        <span class="item-number">0</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <a href="#" class="t-close search-close flexcenter">
+                        <i class="ri-close-line"></i>
+                    </a>
+                    <form class="search">
+                        <span class="icon-large">
+                            <i class="ri-mail-line"></i>
+                        </span>
+                        <input type="mail" placeholder="Your email address">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- OVERLAY -->
+
+        <div class="overlay"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

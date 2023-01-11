@@ -1,0 +1,149 @@
+﻿@model ShopVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_defaultLayout.cshtml";
+}
+
+<main>
+    <div class="single-category">
+        <div class="container">
+            <div class="wrapper">
+                <div class="column">
+                    <div class="holder">
+                        <div class="row sidebar">
+                            <div class="filter">
+                                <div class="filter-block">
+                                    <h4>Category</h4>
+                                    <ul>
+                                        @foreach (var item in Model.categories)
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="checkbox" id="@item.Name">
+                                                <label for="@item.Name">
+                                                    <span class="checked"></span>
+                                                    <span>@item.Name</span>
+                                                </label>
+                                                <span class="count"></span>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+
+                                <div class="filter-block">
+                                    <h4>Brands</h4>
+                                    <ul>
+
+                                        @foreach (var item in Model.Brands)
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="checkbox" id="@item.Name">
+                                                <label for="@item.Name">
+                                                    <span class="checked"></span>
+                                                    <span>@item.Name</span>
+                                                </label>
+                                                <span class="count"></span>
+                                            </li>
+
+                                        }
+
+                                    </ul>
+                                </div>
+
+                                <div class="filter-block">
+                                    <h4>Brands</h4>
+                                    <ul>
+
+                                        @foreach (var item in Model.Sizes)
+                                        {
+                                            <li>
+                                                <input type="checkbox" name="checkbox" id="@item.Name">
+                                                <label for="@item.Name">
+                                                    <span class="checked"></span>
+                                                    <span>@item.Name</span>
+                                                </label>
+                                                <span class="count"></span>
+                                            </li>
+
+                                        }
+
+                                    </ul>
+                                </div>
+
+                                <div class="filter-block pricing">
+                                    <h4>Price</h4>
+                                    <div class="byprice">
+                                        <div class="range-track">
+                                            <input type="range" class="slider" value="25000" min="0"
+                                                   max="10000">
+                                        </div>
+                                        <div class="price-range">
+                                            <span class="price-form">$50</span>
+                                            <span class="price-to">$500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class="row">
+                                <div class="cat-head">
+                                    <div class="breadcrumb">
+                                        <ul class="flexitem">
+
+                                        </ul>
+                                    </div>
+                                    <div class="page-title">
+                                        <h1>Shop</h1>
+                                    </div>
+                                    <div class="cat-description">
+                                    </div>
+                                    <div class="cat-navigation flexitem">
+                                        <div class="item-filter desktop-hide">
+                                            <a href="#" class="filter-trigger label">
+                                                <i class="ri-menu-2-line ri-2x"></i>
+                                                <span>Filter</span>
+                                            </a>
+                                        </div>
+
+                                        <div class="item-sortir">
+                                            <div class="label">
+                                                <span class="mobile-hide">Sort by default</span>
+                                                <div class="desktop-hide">Default</div>
+                                                <i class="ri-arrow-down-s-line"></i>
+                                            </div>
+                                            <ul>
+                                                <li>Default</li>
+                                                <li>Product Name</li>
+                                                <li>Price</li>
+                                                <li>Brand</li>
+                                            </ul>
+                                        </div>
+
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <input type="hidden" id="product-count" value="@ViewBag.count" />
+                            <div class="products main flexwrap" id="parent-products">
+                                <partial name="_ProductsPartial" model="@Model.Products" />
+                            </div>
+                            <div class="load-more flexcenter">
+                                <button class="secondary-button">Show More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banners -->
+    @await Component.InvokeAsync("Banner");
+
+
+
+</main>
